@@ -1,0 +1,17 @@
+/// @description Insert description here
+
+// I made this code
+//o_Entrance
+if (room_exists(room))
+{
+	room_goto_next();
+}
+
+
+/// @description Insert description here
+// I made this code
+// o_Exit
+if (room_exists(room))
+{
+	room_goto_previous();
+}

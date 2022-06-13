@@ -1,0 +1,81 @@
+key_left = keyboard_check(ord("A"));
+key_right = keyboard_check(ord("D"));
+key_up = keyboard_check(ord("W"));
+key_down = keyboard_check(ord("S"));
+key_interact = keyboard_check(ord("E"));
+
+// Movement
+
+var moveh = key_right - key_left;
+
+hsp = moveh * sp;
+
+
+
+var movev = key_down - key_up;
+
+vsp = movev * sp;
+
+
+
+//Diagonal Movement
+if (hsp != 0) && (vsp != 0)
+{
+	sp = dagsp;
+}
+else 
+{
+	sp = movesp;
+}
+
+
+// Horizontal Collision
+if (place_meeting(x + hsp, y, o_wall))
+{
+	while (!place_meeting(x + sign(hsp), y , o_wall))
+	{
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+x = x + hsp;
+
+// Vertical Collision
+if (place_meeting(x, y + vsp, o_wall))
+{
+	while (!place_meeting(x, y + sign(vsp), o_wall))
+	{
+		y = y + sign(vsp);
+	}
+	vsp = 0
+}
+y = y + vsp;
+
+//Animation
+
+if(hsp == 0) && (vsp == 0)
+{
+	sprite_index = s_Alex;
+}
+
+if (hsp > 0)
+{
+	sprite_index = s_AlexRL;
+	image_xscale = -1;
+}
+
+if (hsp < 0)
+{
+	sprite_index = s_AlexRL;
+	image_xscale = 1;
+}
+
+if (vsp > 0)
+{
+	sprite_index = s_AlexRD;
+}
+
+if (vsp < 0)
+{
+	sprite_index = s_AlexRU;
+}

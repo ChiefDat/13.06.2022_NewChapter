@@ -1,0 +1,18 @@
+// Bike Movement
+
+if (keyBike) {
+	if(walksp != 6){
+		walksp = 6;
+	}
+	else{
+		walksp = 3;
+	}
+		if(walksp = 6){
+			spriteWalk = sAlexBike;
+			spriteIdle = sAlexB;
+		}
+		else{
+			spriteWalk = sPlayerW;
+			spriteIdle = sPlayer;
+		}
+}
